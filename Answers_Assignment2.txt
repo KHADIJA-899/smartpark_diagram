@@ -1,0 +1,20 @@
+Answer the following questions in a plain text file (answers.txt). Write 2–4 sentences per question.
+
+10.Q1. Purpose of modeling: Sommerville (p.119) says 'The most important aspect of a system model is that it leaves out detail.' What detail did you leave out of your sequence diagram, and why was it appropriate to do so?
+Answer:
+What detail was left out: The sequence diagram leaves out technical infrastructure details, such as network protocols (HTTP/HTTPS), exact database queries (SQL syntax), error handling for lost connections, user authentication tokens, and specific UI design elements.
+Why it was appropriate: Leaving these out keeps the diagram readable. The goal of this model is to understand the high-level business logic and see how components interact. Adding low-level code details would clutter the diagram and distract from the overall workflow.
+
+11.Q2. Sequence diagram: What does the order of messages in your sequence diagram tell you that a simple bullet-point description of the same scenario does not?
+Answer:
+What the message order tells you: The vertical order of messages explicitly shows the exact timing and dependency of events. It visually proves that Component B cannot start its work until Component A sends it a message, and it maps out exactly how long an object remains active (via activation bars) waiting for a reply. A bulleted list shows a sequence, but it fails to clearly illustrate these overlapping lifelines and structural execution dependencies.
+
+12.Q3. State diagram: Identify one state transition in your diagram that has a guard condition. In plain English, explain what the guard condition means and why it is necessary.
+Answer:
+Identified transition: Confirmed → Cancelled triggered by userCancels [at least 1 hour before slot].
+Plain English explanation: This guard condition means a user is only allowed to cancel their spot if they do it at least 60 minutes before their parking time begins.
+Why it is necessary: It enforces a business rule. Without this restriction, a user could cancel at the very last second, leaving a parking bay empty and wasted when another student or staff member could have used it.
+
+13.Q4. Sequence vs State: These two diagrams model the same system from different perspectives. In one sentence, describe what each diagram emphasises that the other does not.
+Answer:
+The Sequence Diagram emphasizes the chronological flow of messages exchanged between multiple cooperating components over time, whereas the State Diagram emphasizes how a single object's internal condition changes across its entire lifecycle in response to events.
